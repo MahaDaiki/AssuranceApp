@@ -6,14 +6,17 @@ public class Contrat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(nullable = false)
     private LocalDate dateDebut;
+    @Column(nullable = false)
     private LocalDate dateFin;
+    @Column(nullable = false)
     private String fichier;
 
-    @OneToOne
-    @JoinColumn(name = "devis_id")
+    @OneToOne(optional = false)
+    @JoinColumn(name = "devis_id", nullable = false, unique = true)
     private Devis devis;
+
 
 
     public Contrat() {}

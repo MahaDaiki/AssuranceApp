@@ -9,13 +9,15 @@ public class Devis {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(nullable = false)
     private String typeassurance;
+    @Column(nullable = false)
     private double montant;
+    @Column(nullable = false)
     private LocalDate datecreation;
     private boolean estAccepte;
 
-    @OneToOne(mappedBy = "devis", cascade = CascadeType.ALL)
-    private Contrat contrat;
+
 
     public Devis() {}
     public Devis(String typeassurance, double montant, LocalDate datecreation, boolean estAccepte) {
@@ -23,6 +25,7 @@ public class Devis {
         this.montant = montant;
         this.datecreation = datecreation;
         this.estAccepte = estAccepte;
+
 
     }
     public int getId() {
