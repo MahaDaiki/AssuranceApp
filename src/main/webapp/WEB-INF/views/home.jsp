@@ -11,8 +11,14 @@
 <html>
 <head>
   <title>Assurance App</title>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
 </head>
 <body>
 <h1>${message}</h1>
+
+<div class="button-container">
+  <a class="button" href="${pageContext.request.contextPath}/auth/login">Login</a>
+  <a class="button" href="${pageContext.request.contextPath}/auth/register">Register</a>
+</div>
 </body>
 </html>
