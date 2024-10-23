@@ -8,6 +8,7 @@ package org.example.assuranceapp.models;
 
     @Entity
     public class AssuranceHabitation extends Assurance {
+
         @Column(nullable = false)
         private double valeurBien;
 

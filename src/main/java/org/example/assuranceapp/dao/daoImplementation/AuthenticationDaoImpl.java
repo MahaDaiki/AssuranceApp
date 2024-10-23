@@ -25,16 +25,14 @@ public class AuthenticationDaoImpl implements AuthenticationDaoInt {
 
     @Override
     @Transactional
-    public boolean Login(String email, String password) {
+    public Utilisateur Login(String email, String password) {
         try {
-            Utilisateur utilisateur = entityManager.createQuery(
-                            "SELECT u FROM Utilisateur u WHERE u.email = :email AND u.motdepasse = :password", Utilisateur.class)
+            return entityManager.createQuery("SELECT u FROM Utilisateur u WHERE u.email = :email AND u.password = :password", Utilisateur.class)
                     .setParameter("email", email)
                     .setParameter("password", password)
                     .getSingleResult();
-                 return utilisateur != null;
-            } catch (NoResultException e) {
-            return false;
-             }
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 }

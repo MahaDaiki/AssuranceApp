@@ -7,6 +7,7 @@ import javax.persistence.*;
 
 @Entity
 public class AssuranceSante extends Assurance {
+
     @Column(nullable = false)
     private int age;
     @Column(nullable = false)
