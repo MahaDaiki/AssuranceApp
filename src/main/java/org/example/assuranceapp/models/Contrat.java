@@ -1,7 +1,7 @@
 package org.example.assuranceapp.models;
 import javax.persistence.*;
 import java.time.LocalDate;
-
+@Entity
 public class Contrat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

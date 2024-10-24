@@ -17,14 +17,17 @@ public class Devis {
     private LocalDate datecreation;
     private boolean estAccepte;
 
-
+    @OneToOne
+    @JoinColumn(name = "assurance_id", referencedColumnName = "id")
+    private Assurance assurance;
 
     public Devis() {}
-    public Devis(String typeassurance, double montant, LocalDate datecreation, boolean estAccepte) {
+    public Devis(String typeassurance, double montant, LocalDate datecreation, boolean estAccepte, Assurance assurance) {
         this.typeassurance = typeassurance;
         this.montant = montant;
         this.datecreation = datecreation;
         this.estAccepte = estAccepte;
+        this.assurance = assurance;
 
 
     }
@@ -57,6 +60,12 @@ public class Devis {
     }
     public void setEstAccepte(boolean estAccepte) {
         this.estAccepte = estAccepte;
+    }
+    public Assurance getAssurance() {
+        return assurance;
+    }
+    public void setAssurance(Assurance assurance) {
+        this.assurance = assurance;
     }
 
 }

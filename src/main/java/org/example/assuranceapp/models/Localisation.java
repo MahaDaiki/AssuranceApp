@@ -34,4 +34,8 @@ public class Localisation {
     public boolean isZoneRisques() {
         return zoneRisques;
     }
+    public void setZoneRisques(boolean zoneRisques) {
+        this.zoneRisques = zoneRisques;
+    }
+
 }

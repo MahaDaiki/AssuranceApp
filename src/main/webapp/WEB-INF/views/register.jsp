@@ -38,7 +38,7 @@
         <input type="text" id="adresse" name="adresse" required />
 
         <label for="telephone">Telephone:</label>
-        <input type="number" id="telephone" name="telephone" required />
+        <input type="tel" id="telephone" name="telephone" required />
 
         <button type="submit">Register</button>
     </form>

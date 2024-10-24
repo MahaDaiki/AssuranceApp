@@ -12,13 +12,55 @@
 <head>
   <title>Assurance App</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/navbar.css">
 </head>
 <body>
+<nav class="navbar">
+  <div class="container">
+    <a href="${pageContext.request.contextPath}/home" class="nav-brand">AssuranceApp</a>
+    <ul class="nav-menu">
+      <li><a href="${pageContext.request.contextPath}/assuranceauto">Assurance Auto</a></li>
+      <li><a href="${pageContext.request.contextPath}/assurancehabitation">Assurance Habitation</a></li>
+      <li><a href="${pageContext.request.contextPath}/assurancesante">Assurance Santé</a></li>
+      <li><a href="${pageContext.request.contextPath}/auth/logout" class="logout">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
 <h1>${message}</h1>
 
-<div class="button-container">
-  <a class="button" href="${pageContext.request.contextPath}/auth/login">Login</a>
-  <a class="button" href="${pageContext.request.contextPath}/auth/register">Register</a>
+<!-- Cards Section -->
+<div class="cards-container">
+  <!-- Assurance Auto Card -->
+  <div class="card">
+    <img src="${pageContext.request.contextPath}/assets/images/assurance_auto1.jpg" alt="Assurance Auto" class="card-image">
+    <div class="card-content">
+      <h2>Assurance Auto</h2>
+      <p>Protégez votre véhicule avec notre assurance auto complète, adaptée à tous les besoins.</p>
+      <a href="${pageContext.request.contextPath}/assuranceauto/new" class="card-button">Voir Plus</a>
+    </div>
+  </div>
+
+  <!-- Assurance Habitation Card -->
+  <div class="card">
+    <img src="${pageContext.request.contextPath}/assets/images/assurance_habitation2.jpg" alt="Assurance Habitation" class="card-image">
+    <div class="card-content">
+      <h2>Assurance Habitation</h2>
+      <p>Protégez votre domicile avec notre assurance habitation, offrant une couverture complète.</p>
+      <a href="${pageContext.request.contextPath}/assurancehabitation/new" class="card-button">Voir Plus</a>
+    </div>
+  </div>
+
+  <!-- Assurance Santé Card -->
+  <div class="card">
+    <img src="${pageContext.request.contextPath}/assets/images/assurance_sante.jpg" alt="Assurance Santé" class="card-image">
+    <div class="card-content">
+      <h2>Assurance Santé</h2>
+      <p>Optez pour notre assurance santé pour une couverture médicale complète.</p>
+      <a href="${pageContext.request.contextPath}/assurancesante/new" class="card-button">Voir Plus</a>
+    </div>
+  </div>
 </div>
+
 </body>
 </html>

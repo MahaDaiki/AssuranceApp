@@ -26,8 +26,11 @@ public class AuthenticationController {
     }
 }
     @PostMapping("/login")
-    public String login(@RequestParam String email, @RequestParam String password) {
-        if (authenticationService.Login(email, password)) {
+    public String login(@RequestParam String email, @RequestParam String motdepasse , HttpServletRequest request) {
+        Utilisateur utilisateur = authenticationService.Login(email, motdepasse);
+        if (utilisateur != null) {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", utilisateur);
             return "redirect:/home?message=Login successful!";
         } else {
             return "redirect:/auth/login?error=Login failed!";

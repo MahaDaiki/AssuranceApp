@@ -5,10 +5,10 @@ import org.example.assuranceapp.enums.type_assurance;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Assurance {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Enumerated(EnumType.STRING)
@@ -20,11 +20,15 @@ public abstract class Assurance {
     @JoinColumn(name = "utilisateur_id")
     private Utilisateur utilisateur;
 
+    @OneToOne(mappedBy = "assurance", cascade = CascadeType.ALL)
+    private Devis devis;
+
     public Assurance() {}
     public Assurance(type_assurance type,  int base ,Utilisateur utilisateur) {
         this.type = type;
         this.base = base;
         this.utilisateur = utilisateur;
+
     }
     public Long getId() {
         return id;
@@ -42,6 +46,21 @@ public abstract class Assurance {
         return utilisateur;
     }
 
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
+     public int getBase() {
+        return base;
+     }
+     public void setBase(int base) {
+        this.base = base;
+     }
+     public Devis getDevis() {
+        return devis;
+     }
+     public void setDevis(Devis devis) {
+        this.devis = devis;
+     }
 
     }
 

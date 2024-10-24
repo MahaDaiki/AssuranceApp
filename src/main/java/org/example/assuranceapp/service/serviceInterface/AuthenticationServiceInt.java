@@ -6,6 +6,6 @@ import javax.servlet.http.HttpSession;
 
 public interface AuthenticationServiceInt {
     public boolean Register(Utilisateur utilisateur);
-    public boolean Login(String email, String password);
+    public Utilisateur  Login(String email, String password);
     void logout(HttpSession session);
 }
