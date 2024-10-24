@@ -16,6 +16,13 @@ public class AssuranceAutoServiceImpl implements AssuranceAutoServiceInt {
     private AssuranceAutoDaoInt assuranceAutoDao;
     @Override
     public void insertAssuranceAuto(AssuranceAuto assuranceAuto) {
+        System.out.println("Inserting AssuranceAuto service: " + assuranceAuto);
+        if (assuranceAuto.getAgeConducteur() <= 18) {
+            throw new IllegalArgumentException("L'âge du conducteur ne peut pas être négatif ou zéro.");
+        }
+        if (assuranceAuto.getUtilisationvehicule() == null || assuranceAuto.getUtilisationvehicule().trim().isEmpty()) {
+            throw new IllegalArgumentException("L'utilisation du véhicule ne peut pas être vide.");
+        }
         assuranceAutoDao.insertAssuranceAuto(assuranceAuto);
     }
 

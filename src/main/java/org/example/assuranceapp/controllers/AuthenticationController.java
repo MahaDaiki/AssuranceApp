@@ -26,8 +26,8 @@ public class AuthenticationController {
     }
 }
     @PostMapping("/login")
-    public String login(@RequestParam String email, @RequestParam String password , HttpServletRequest request) {
-        Utilisateur utilisateur = authenticationService.Login(email, password);
+    public String login(@RequestParam String email, @RequestParam String motdepasse , HttpServletRequest request) {
+        Utilisateur utilisateur = authenticationService.Login(email, motdepasse);
         if (utilisateur != null) {
             HttpSession session = request.getSession();
             session.setAttribute("user", utilisateur);

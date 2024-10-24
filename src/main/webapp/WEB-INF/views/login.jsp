@@ -30,8 +30,8 @@
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required />
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required />
+        <label for="motdepasse">Password:</label>
+        <input type="password" id="motdepasse" name="motdepasse" required />
 
         <button type="submit">Login</button>
     </form>

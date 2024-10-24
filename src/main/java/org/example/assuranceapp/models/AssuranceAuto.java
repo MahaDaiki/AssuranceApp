@@ -19,7 +19,7 @@ public class AssuranceAuto extends Assurance {
 
 
     public AssuranceAuto() {
-        super();
+        super(type_assurance.automobile, 500, null);
     }
 
     public AssuranceAuto(type_assurance type, int base, Utilisateur utilisateur, int ageConducteur,String Utilisationvehicule  ,Vehicule vehicule) {
@@ -47,6 +47,14 @@ public class AssuranceAuto extends Assurance {
         this.Utilisationvehicule = Utilisationvehicule;
     }
 
+public String toString(){
+    return "AssuranceAuto{" +
 
+            ", ageConducteur=" + ageConducteur +
+            ", utilisationVehicule='" + Utilisationvehicule + '\'' +
+            ", vehicule=" + (vehicule != null ? vehicule.getId() : "null") +
+            ", utilisateur=" + (getUtilisateur() != null ? getUtilisateur().getId() : "null") +
+            '}';
+}
 
 }

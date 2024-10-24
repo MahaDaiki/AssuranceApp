@@ -2,6 +2,8 @@ package org.example.assuranceapp.dao.daoImplementation;
 
 import org.example.assuranceapp.dao.daoInterface.AssuranceAutoDaoInt;
 import org.example.assuranceapp.models.AssuranceAuto;
+import org.example.assuranceapp.models.Localisation;
+import org.example.assuranceapp.models.Vehicule;
 import org.springframework.stereotype.Repository;
 
 
@@ -20,6 +22,9 @@ public class AssuranceAutoDaoImpl  implements AssuranceAutoDaoInt {
     @Override
     @Transactional
     public void insertAssuranceAuto(AssuranceAuto assuranceAuto) {
+        System.out.println("Inserting AssuranceAuto dao: " + assuranceAuto);
+        Vehicule vehicule = entityManager.find(Vehicule.class, assuranceAuto.getVehicule().getId());
+        assuranceAuto.setVehicule(vehicule);
         entityManager.persist(assuranceAuto);
     }
 

@@ -18,12 +18,12 @@ public class AssuranceSante extends Assurance {
 
 
     public AssuranceSante() {
-        super();
+        super(type_assurance.sante, 150 , null);
     }
 
 
     public AssuranceSante(type_assurance type, int base, Utilisateur utilisateur, int age, String etatSante, type_de_couverture typeDeCouverture) {
-        super(type, base, utilisateur);
+        super(type_assurance.sante, 150 , utilisateur);
         this.age = age;
         this.etatSante = etatSante;
         this.typeDeCouverture = typeDeCouverture;
