@@ -16,12 +16,12 @@
 </head>
 <body>
 <nav class="navbar">
-  <div class="container">
-    <a href="${pageContext.request.contextPath}/home" class="nav-brand">AssuranceApp</a>
+  <div class="">
+    <a href="${pageContext.request.contextPath}/home" >AssuranceApp</a>
     <ul class="nav-menu">
-      <li><a href="${pageContext.request.contextPath}/assuranceauto">Assurance Auto</a></li>
-      <li><a href="${pageContext.request.contextPath}/assurancehabitation">Assurance Habitation</a></li>
-      <li><a href="${pageContext.request.contextPath}/assurancesante">Assurance Santé</a></li>
+      <li><a href="">Assurance Auto</a></li>
+      <li><a href="">Assurance Habitation</a></li>
+      <li><a href="">Assurance Santé</a></li>
       <li>
         <form action="${pageContext.request.contextPath}/auth/logout" method="post" style="display:inline;">
           <button type="submit" class="logout">Logout</button>
