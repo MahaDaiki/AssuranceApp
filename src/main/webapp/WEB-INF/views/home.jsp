@@ -23,7 +23,7 @@
       <li><a href="">Assurance Habitation</a></li>
       <li><a href="">Assurance Santé</a></li>
       <li>
-        <form action="${pageContext.request.contextPath}/auth/logout" method="post" style="display:inline;">
+        <form action="${pageContext.request.contextPath}/auth/logout" method="post" >
           <button type="submit" class="logout">Logout</button>
         </form>
       </li>
