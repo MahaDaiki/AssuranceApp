@@ -19,7 +19,7 @@
 <body>
 <h1>Devis Details</h1>
 <p>Type: ${devis.typeassurance}</p>
-<p>Montant: ${devis.montant}</p>
+<p>Montant: ${devis.montant}  DH</p>
 <p>Date de création: ${devis.datecreation}</p>
 
 

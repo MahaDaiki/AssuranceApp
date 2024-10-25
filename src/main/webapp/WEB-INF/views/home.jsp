@@ -22,7 +22,11 @@
       <li><a href="${pageContext.request.contextPath}/assuranceauto">Assurance Auto</a></li>
       <li><a href="${pageContext.request.contextPath}/assurancehabitation">Assurance Habitation</a></li>
       <li><a href="${pageContext.request.contextPath}/assurancesante">Assurance Santé</a></li>
-      <li><a href="${pageContext.request.contextPath}/auth/logout" class="logout">Logout</a></li>
+      <li>
+        <form action="${pageContext.request.contextPath}/auth/logout" method="post" style="display:inline;">
+          <button type="submit" class="logout">Logout</button>
+        </form>
+      </li>
     </ul>
   </div>
 </nav>
