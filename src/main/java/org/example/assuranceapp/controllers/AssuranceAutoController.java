@@ -1,10 +1,8 @@
 package org.example.assuranceapp.controllers;
 
-import org.example.assuranceapp.models.AssuranceAuto;
-import org.example.assuranceapp.models.Localisation;
-import org.example.assuranceapp.models.Utilisateur;
-import org.example.assuranceapp.models.Vehicule;
+import org.example.assuranceapp.models.*;
 import org.example.assuranceapp.service.serviceInterface.AssuranceAutoServiceInt;
+import org.example.assuranceapp.service.serviceInterface.DevisServiceInt;
 import org.example.assuranceapp.service.serviceInterface.VehiculeServiceInt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +20,8 @@ public class AssuranceAutoController {
     private AssuranceAutoServiceInt assuranceAutoService;
     @Autowired
     private VehiculeServiceInt vehiculeService;
+    @Autowired
+    DevisServiceInt devisService;
 
 
     @GetMapping("/new")
@@ -52,7 +52,12 @@ public class AssuranceAutoController {
             assuranceAuto.setVehicule(vehicule);
             assuranceAuto.setUtilisateur(utilisateur);
             assuranceAutoService.insertAssuranceAuto(assuranceAuto);
-            return "redirect:/home?message=Assurance created successfully!";
+
+            Devis devis = devisService.calculeDevis(assuranceAuto);
+            devisService.insertDevis(devis);
+
+            session.setAttribute("generatedDevis", devis);
+            return "redirect:/devis/display?message=Assurance created successfully!";
         } else {
             return "redirect:/auth/login?error=You need to log in to create an assurance!";
         }

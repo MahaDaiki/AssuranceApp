@@ -13,20 +13,23 @@ public class AssuranceSante extends Assurance {
     @Column(nullable = false)
     private String etatSante;
 
+
+
     @Enumerated(EnumType.STRING)
     private type_de_couverture typeDeCouverture;
 
-
+    private boolean maladieChronique;
     public AssuranceSante() {
         super(type_assurance.sante, 150 , null);
     }
 
 
-    public AssuranceSante(type_assurance type, int base, Utilisateur utilisateur, int age, String etatSante, type_de_couverture typeDeCouverture) {
+    public AssuranceSante(type_assurance type, int base, Utilisateur utilisateur, int age, String etatSante, type_de_couverture typeDeCouverture, boolean maladieChronique) {
         super(type_assurance.sante, 150 , utilisateur);
         this.age = age;
         this.etatSante = etatSante;
         this.typeDeCouverture = typeDeCouverture;
+        this.maladieChronique = maladieChronique;
     }
 
     public int getAge() {
@@ -43,6 +46,12 @@ public class AssuranceSante extends Assurance {
     }
     public type_de_couverture getTypeDeCouverture() {
         return typeDeCouverture;
+    }
+    public boolean isMaladieChronique() {
+        return maladieChronique;
+    }
+    public void setMaladieChronique(boolean maladieChronique) {
+        this.maladieChronique = maladieChronique;
     }
 
     }
