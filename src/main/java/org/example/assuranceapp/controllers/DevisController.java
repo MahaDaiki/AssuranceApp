@@ -46,11 +46,11 @@ public class DevisController {
         Devis generatedDevis = (Devis) session.getAttribute("generatedDevis");
 
         if (generatedDevis != null) {
-            // Set the Devis as accepted
-            generatedDevis.setEstAccepte(true);
-            devisService.updateDevis(generatedDevis); // Save the updated Devis
 
-            // Optionally clear the session attribute
+            generatedDevis.setEstAccepte(true);
+            devisService.updateDevis(generatedDevis);
+
+
             session.removeAttribute("generatedDevis");
 
             return "redirect:/home?message=Devis accepted successfully!";
@@ -59,14 +59,13 @@ public class DevisController {
         return "redirect:/home?error=No devis to accept!";
     }
 
-    // Method to decline the Devis
+
     @PostMapping("/decline")
     public String declineDevis(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         Devis generatedDevis = (Devis) session.getAttribute("generatedDevis");
 
         if (generatedDevis != null) {
-            // Optionally, you might want to delete it or just clear the session
             session.removeAttribute("generatedDevis");
             return "redirect:/home?message=Devis declined.";
         }
