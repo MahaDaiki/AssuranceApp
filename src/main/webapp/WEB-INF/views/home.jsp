@@ -31,7 +31,6 @@
   </div>
 </nav>
 
-<h1>${message}</h1>
 
 <!-- Cards Section -->
 <div class="cards-container">
