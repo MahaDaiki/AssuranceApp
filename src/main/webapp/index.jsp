@@ -8,17 +8,35 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assurance App</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/indexstyle.css">
 </head>
 <body>
-<h1>${message}</h1>
+<header>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="${pageContext.request.contextPath}/" class="navbar-logo">Assurance App</a>
+            <ul class="navbar-links">
+                <li><a href="${pageContext.request.contextPath}/auth/login">Login</a></li>
+                <li><a href="${pageContext.request.contextPath}/auth/register">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
 
-<div class="button-container">
-    <a class="button" href="auth/login">Login</a>
-    <a class="button" href="auth/register">Register</a>
-</div>
+<main>
+    <div class="image-container">
+        <img src="${pageContext.request.contextPath}/assets/images/Assueance_Habitation1.png" alt="Assurance Image">
+    </div>
+    <h1>${message}</h1>
+</main>
+
+<footer>
+    <p>&copy; 2024 Assurance App. All rights reserved.</p>
+</footer>
 </body>
 </html>

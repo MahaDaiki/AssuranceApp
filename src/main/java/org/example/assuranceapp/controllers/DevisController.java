@@ -1,6 +1,7 @@
 package org.example.assuranceapp.controllers;
 
 
+import org.example.assuranceapp.models.Contrat;
 import org.example.assuranceapp.models.Devis;
 import org.example.assuranceapp.service.serviceInterface.DevisServiceInt;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
 
 @Controller
 @RequestMapping("/devis")
@@ -52,8 +54,14 @@ public class DevisController {
 
 
             session.removeAttribute("generatedDevis");
+            Contrat contrat = new Contrat();
+            contrat.setDateDebut(LocalDate.now());
+            contrat.setDevis(generatedDevis);
 
-            return "redirect:/home?message=Devis accepted successfully!";
+            session.setAttribute("contrat", contrat);
+            return "redirect:/contrat/generate?message=Devis accepted successfully!" ;
+
+
         }
 
         return "redirect:/home?error=No devis to accept!";

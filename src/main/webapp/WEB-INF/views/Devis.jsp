@@ -17,6 +17,21 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/navbar.css">
 </head>
 <body>
+<nav class="navbar">
+    <div class="container">
+        <a href="${pageContext.request.contextPath}/home" class="nav-brand">AssuranceApp</a>
+        <ul class="nav-menu">
+            <li><a href="${pageContext.request.contextPath}/assuranceauto">Assurance Auto</a></li>
+            <li><a href="${pageContext.request.contextPath}/assurancehabitation">Assurance Habitation</a></li>
+            <li><a href="${pageContext.request.contextPath}/assurancesante">Assurance Santé</a></li>
+            <li>
+                <form action="${pageContext.request.contextPath}/auth/logout" method="post" style="display:inline;">
+                    <button type="submit" class="logout">Logout</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>
 <h1>Devis Details</h1>
 <p>Type: ${devis.typeassurance}</p>
 <p>Montant: ${devis.montant}  DH</p>
