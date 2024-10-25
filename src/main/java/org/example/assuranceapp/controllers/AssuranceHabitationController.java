@@ -3,6 +3,7 @@ package org.example.assuranceapp.controllers;
 
 import org.example.assuranceapp.models.*;
 import org.example.assuranceapp.service.serviceInterface.AssuranceHabitationServiceInt;
+import org.example.assuranceapp.service.serviceInterface.DevisServiceInt;
 import org.example.assuranceapp.service.serviceInterface.LocalisationServiceInt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,8 @@ public class AssuranceHabitationController {
     private AssuranceHabitationServiceInt assuranceHabitationService;
     @Autowired
     private LocalisationServiceInt localisationService;
+    @Autowired
+    DevisServiceInt devisService;
 
     @GetMapping("/new")
     public ModelAndView showNewAssuranceForm(HttpServletRequest request) {
@@ -54,7 +57,13 @@ public class AssuranceHabitationController {
 
             assuranceHabitationService.insertAssuranceHabitation(assuranceHabitation);
 
-            return "redirect:/home?message=Assurance created successfully!";
+
+            Devis devis = devisService.calculeDevis(assuranceHabitation);
+            devisService.insertDevis(devis);
+
+            session.setAttribute("generatedDevis", devis);
+
+            return "redirect:/devis/display?message=Assurance created successfully!";
         } else {
             return "redirect:/auth/login?error=You need to log in to create an assurance!";
         }

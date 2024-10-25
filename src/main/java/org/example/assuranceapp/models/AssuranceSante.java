@@ -47,11 +47,16 @@ public class AssuranceSante extends Assurance {
     public type_de_couverture getTypeDeCouverture() {
         return typeDeCouverture;
     }
+
     public boolean isMaladieChronique() {
         return maladieChronique;
     }
     public void setMaladieChronique(boolean maladieChronique) {
         this.maladieChronique = maladieChronique;
+    }
+
+    public type_de_couverture setTypeDeCouverture(type_de_couverture typeDeCouverture) {
+        return typeDeCouverture;
     }
 
     }
