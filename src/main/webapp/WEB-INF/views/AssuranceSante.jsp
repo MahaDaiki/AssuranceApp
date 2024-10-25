@@ -34,6 +34,12 @@
         </div>
 
         <div class="form-group">
+            <label for="maladieChronique">Maladie Chronique:</label>
+            <input type="checkbox" id="maladieChronique" name="maladieChronique" value="true">
+            <label for="maladieChronique">Oui</label>
+        </div>
+
+        <div class="form-group">
             <label for="typeDeCouverture">Type de Couverture:</label>
             <select id="typeDeCouverture" name="typeDeCouverture" required>
                 <option value="basic">Basic</option>
